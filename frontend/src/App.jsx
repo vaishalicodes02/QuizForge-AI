@@ -1,122 +1,167 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <main className="app">
+      <nav className="navbar">
+        <div className="brand">
+          <div className="brand-icon">Q</div>
+          <span>QuizForge AI</span>
         </div>
-        <div>
-          <h1>Get started</h1>
+
+        <div className="nav-actions">
+          <button className="btn btn-ghost">Sign In</button>
+          <button className="btn btn-primary">Get Started</button>
+        </div>
+      </nav>
+
+      <section className="hero-section">
+        <div className="hero-content">
+          <div className="badge">
+            ✦ AI-powered learning
+          </div>
+
+          <h1>
+            Turn your study material
+            <span> into smarter quizzes.</span>
+          </h1>
+
           <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+            Upload your notes or PDFs and let QuizForge AI create
+            personalized multiple-choice quizzes in seconds.
           </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
+          <div className="hero-actions">
+            <button className="btn btn-primary btn-large">
+              Create your first quiz →
+            </button>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+            <button className="btn btn-secondary btn-large">
+              Explore features
+            </button>
+          </div>
+
+          <div className="trust-row">
+            <div className="trust-item">
+              <strong>AI</strong>
+              <span>Generated questions</span>
+            </div>
+
+            <div className="divider" />
+
+            <div className="trust-item">
+              <strong>PDF</strong>
+              <span>Study material</span>
+            </div>
+
+            <div className="divider" />
+
+            <div className="trust-item">
+              <strong>∞</strong>
+              <span>Practice quizzes</span>
+            </div>
+          </div>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+
+        <div className="hero-visual">
+          <div className="quiz-card">
+            <div className="quiz-card-top">
+              <span className="small-label">QUIZFORGE AI</span>
+              <span className="difficulty">Medium</span>
+            </div>
+
+            <div className="progress">
+              <div className="progress-fill" />
+            </div>
+
+            <p className="question-number">Question 03 of 10</p>
+
+            <h2>
+              Which approach is commonly used to
+              train a machine learning model?
+            </h2>
+
+            <div className="options">
+              <div className="option">
+                <span>A</span>
+                Supervised learning
+              </div>
+
+              <div className="option selected">
+                <span>B</span>
+                Reinforcement learning
+                <b>✓</b>
+              </div>
+
+              <div className="option">
+                <span>C</span>
+                Manual programming
+              </div>
+
+              <div className="option">
+                <span>D</span>
+                Static compilation
+              </div>
+            </div>
+
+            <button className="next-button">
+              Next question →
+            </button>
+          </div>
+
+          <div className="floating-card floating-top">
+            <span>✦</span>
+            AI Generated
+          </div>
+
+          <div className="floating-card floating-bottom">
+            <strong>92%</strong>
+            <span>Quiz score</span>
+          </div>
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      <section className="features">
+        <div className="section-heading">
+          <span className="badge">BUILT FOR BETTER LEARNING</span>
+
+          <h2>
+            Everything you need to
+            <span> learn smarter.</span>
+          </h2>
+        </div>
+
+        <div className="feature-grid">
+          <div className="feature-card">
+            <div className="feature-icon">↑</div>
+            <h3>Upload your material</h3>
+            <p>
+              Upload PDFs, lecture notes and study material
+              to create quizzes from your own content.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">✦</div>
+            <h3>AI-generated questions</h3>
+            <p>
+              Generate meaningful multiple-choice questions
+              based directly on your study material.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">✓</div>
+            <h3>Learn from explanations</h3>
+            <p>
+              Review your answers and understand why each
+              answer is correct.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }
 
-export default App
+export default App;
