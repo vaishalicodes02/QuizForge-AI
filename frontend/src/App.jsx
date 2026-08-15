@@ -1,6 +1,16 @@
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 import "./App.css";
+import Quiz from "./pages/Quiz";
+import SubjectDetails from "./pages/SubjectDetails";
+import TopicDetails from "./pages/TopicDetails";
+import QuizSetup from "./pages/QuizSetup";
+import QuizResult from "./pages/QuizResult";
 
-function App() {
+function Home() {
   return (
     <main className="app">
       <nav className="navbar">
@@ -161,6 +171,41 @@ function App() {
         </div>
       </section>
     </main>
+  );
+}
+function App() {
+  return (
+    <Routes>
+      {/* Public routes */}
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route
+        path="/subjects/:subjectId"
+        element={<SubjectDetails />}
+      />
+      <Route
+       path="/subjects/:subjectId/topics/:topicId"
+       element={<TopicDetails />}
+      />
+      <Route
+       path="/quiz-setup/:materialId"
+       element={<QuizSetup />}
+      />
+      <Route
+        path="/quiz/:materialId"
+        element={<Quiz />}
+      />
+      <Route
+        path="/quiz/:materialId/result"
+        element={<QuizResult />}
+      />
+
+      {/* Protected routes */}
+      <Route element={<ProtectedRoute />}>
+      <Route path="/dashboard" element={<Dashboard />} />
+      </Route>
+    </Routes>
   );
 }
 

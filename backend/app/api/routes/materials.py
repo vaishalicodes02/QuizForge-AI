@@ -113,10 +113,17 @@ async def upload_material(
 
 @router.get("/")
 def get_materials(
+    topic_id: int | None = None,
     db: Session = Depends(get_db),
+    current_user=Depends(get_current_user),
 ):
-    materials = db.scalars(
-        select(Material)
-    ).all()
+    query = select(Material)
+
+    if topic_id is not None:
+        query = query.where(
+            Material.topic_id == topic_id
+        )
+
+    materials = db.scalars(query).all()
 
     return materials
